@@ -12,7 +12,7 @@
         android:layout_height="140dp"
         android:layout_marginStart="13dp"
         android:layout_marginTop="16dp"
-        app:cardBackgroundColor="#8BC34A"
+        app:cardBackgroundColor="#454545"
         app:cardCornerRadius="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -25,22 +25,39 @@
             <TextView
                 android:id="@+id/tv_title_now_playing"
                 android:layout_width="358dp"
-                android:layout_height="30dp"
+                android:layout_height="0dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
+                android:layout_marginBottom="13dp"
                 android:text="@string/nulldata"
                 android:textSize="16sp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/bdetail"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_released_now_playing"
-                android:layout_width="358dp"
+                android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="17dp"
                 android:layout_marginTop="13dp"
+                android:layout_marginEnd="25dp"
+                app:layout_constraintEnd_toStartOf="@+id/bdetail"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_now_playing" />
+
+            <Button
+                android:id="@+id/bdetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="17dp"
+                android:backgroundTint="#9A9A9A"
+                android:text="See Details"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_released_now_playing"
                 app:layout_constraintTop_toBottomOf="@+id/tv_title_now_playing" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

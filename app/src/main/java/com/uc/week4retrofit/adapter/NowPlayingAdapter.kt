@@ -4,6 +4,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
@@ -17,13 +18,13 @@ class NowPlayingAdapter(private val dataSet: ArrayList<Result>) :
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val tvtitle: TextView
         val tvreleased: TextView
-        val cvNowPlaying: CardView
+        val BDetail: Button
 
         init {
             // Define click listener for the ViewHolder's View.
             tvreleased = view.findViewById(R.id.tv_released_now_playing)
             tvtitle = view.findViewById(R.id.tv_title_now_playing)
-            cvNowPlaying = view.findViewById(R.id.cv_now_playing)
+            BDetail = view.findViewById(R.id.bdetail)
         }
     }
 
@@ -43,11 +44,10 @@ class NowPlayingAdapter(private val dataSet: ArrayList<Result>) :
         // contents of the view with that element
         viewHolder.tvtitle.text = dataSet[position].title
         viewHolder.tvreleased.text = dataSet[position].release_date
-        viewHolder.cvNowPlaying.setOnClickListener{
+        viewHolder.BDetail.setOnClickListener{
             val intent = Intent(it.context, MovieDetail::class.java)
             intent.putExtra("movie_id", dataSet[position].id)
             it.context.startActivity(intent)
-            Thread.sleep(500)
         }
     }
 

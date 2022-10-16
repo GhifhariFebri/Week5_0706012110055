@@ -5,6 +5,7 @@ import GenreAdapter
 import LanguageAdapter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -17,6 +18,7 @@ import com.uc.week4retrofit.model.ProductionCompany
 import com.uc.week4retrofit.model.SpokenLanguage
 import com.uc.week4retrofit.viewmodel.MoviesViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
 
 @AndroidEntryPoint
 class MovieDetail : AppCompatActivity() {
@@ -41,7 +43,11 @@ class MovieDetail : AppCompatActivity() {
                 text = response.title
 
             }
+            if (response != null) {
+                binding.progressBar.visibility = View.INVISIBLE
+            }
             binding.overview.text = response.overview
+
 
             binding.rvGenre.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
             genreadapter = GenreAdapter(response.genres)
