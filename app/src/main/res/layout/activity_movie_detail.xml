@@ -23,11 +23,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="92dp"
         android:layout_marginEnd="14dp"
         android:gravity="center_horizontal"
-        android:text="@string/nulldata"
-        android:textColor="#FDFDFD"
+        android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,7 +69,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="230dp"
-        android:text="Overview"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/rv_genre" />
@@ -81,7 +79,6 @@
         android:layout_height="200dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="270dp"
-        android:text="@string/nulldata"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/backrop_path" />
 

@@ -19,6 +19,9 @@ import com.uc.week4retrofit.model.SpokenLanguage
 import com.uc.week4retrofit.viewmodel.MoviesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
+import java.util.Timer
+import java.util.TimerTask
+import kotlin.concurrent.thread
 
 @AndroidEntryPoint
 class MovieDetail : AppCompatActivity() {
@@ -39,16 +42,19 @@ class MovieDetail : AppCompatActivity() {
         nowPlayingViewModel.getMovieDetails(Const.API_KEY, movieId)
         nowPlayingViewModel.movieDetails.observe(this, Observer {
             response ->
+            if(response != null) {
+                binding.textView.text = "Overview"
+                Thread.sleep(1000)
+                binding.progressBar.visibility = View.INVISIBLE
+            }
             binding.tvMovieDetailPlaying.apply {
                 text = response.title
 
             }
-            if (response != null) {
-                binding.progressBar.visibility = View.INVISIBLE
-            }
+
+
+
             binding.overview.text = response.overview
-
-
             binding.rvGenre.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
             genreadapter = GenreAdapter(response.genres)
             binding.rvGenre.adapter = genreadapter
